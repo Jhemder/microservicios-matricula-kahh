@@ -8,15 +8,15 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: student-service
+        - id: kah-student-service
           uri: lb://kah-student-service
           predicates:
             - Path=/api/students/**
-        - id: course-service
+        - id: kah-course-service
           uri: lb://kah-course-service
           predicates:
             - Path=/api/courses/**
-        - id: enrollment-service
+        - id: kah-enrollment-service
           uri: lb://kah-enrollment-service
           predicates:
             - Path=/api/enrollments/**
@@ -30,6 +30,3 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-  jackson:
-    time-zone: America/Lima
