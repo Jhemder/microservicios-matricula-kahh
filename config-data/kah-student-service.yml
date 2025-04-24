@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: kah-student
+    name: kah-student-service
 
   datasource:
     url: jdbc:mysql://localhost:3306/kah_student_db
