@@ -9,8 +9,7 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
-          lower-case-service-id: true
+          enabled: false   # 👈 Desactivamos discovery locator para usar rutas personalizadas
       routes:
         - id: student-service
           uri: lb://kah-student-service
@@ -24,8 +23,6 @@ spring:
           uri: lb://kah-enrollment-service
           predicates:
             - Path=/api/enrollments/**
-
-
 
 eureka:
   client:
