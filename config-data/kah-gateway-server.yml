@@ -11,15 +11,15 @@ spring:
         locator:
           enabled: false
       routes:
-        - id: kah-student-service
+        - id: student-service
           uri: lb://kah-student-service
           predicates:
             - Path=/api/students/**
-        - id: kah-course-service
+        - id: course-service
           uri: lb://kah-course-service
           predicates:
             - Path=/api/courses/**
-        - id: kah-enrollment-service
+        - id: enrollment-service
           uri: lb://kah-enrollment-service
           predicates:
             - Path=/api/enrollments/**
