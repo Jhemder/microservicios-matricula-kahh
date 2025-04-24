@@ -14,15 +14,15 @@ spring:
         - id: student-service
           uri: lb://kah-student-service
           predicates:
-            - Path=/api/students/**
+            - Path=/students/**
         - id: course-service
           uri: lb://kah-course-service
           predicates:
-            - Path=/api/courses/**
+            - Path=/courses/**
         - id: enrollment-service
           uri: lb://kah-enrollment-service
           predicates:
-            - Path=/api/enrollments/**
+            - Path=/enrollments/**
 
 eureka:
   client:
