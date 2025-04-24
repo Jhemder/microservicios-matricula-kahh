@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/kah_enrollment_db
     username: root
-    password:   # pon tu contraseña real si tienes
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
