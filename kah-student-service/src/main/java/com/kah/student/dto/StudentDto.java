@@ -1,31 +1,14 @@
-package com.kah.student.entity;
+package com.kah.student.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "students", uniqueConstraints = @UniqueConstraint(columnNames = "documento"))
-public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class StudentDto {
     private Long id;
-
     private String nombres;
     private String apellidos;
-
-    @Column(nullable = false, unique = true)
     private String documento;
-
     private String email;
     private String carrera;
-    private String estado; // Ej: ACTIVO, INACTIVO
+    private String estado;
     private String ciclo;
-
-    public Student(String kevin, String abarca, String number, String mail, String sistemas, String activo, String vii) {
-    }
-
-    public Student() {
-
-    }
 
     // Getters y setters
     public Long getId() { return id; }

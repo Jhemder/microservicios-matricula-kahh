@@ -47,6 +47,12 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- OpenFeign para consumir otros microservicios -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
 		<!-- DevTools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -55,7 +61,7 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Test -->
+		<!-- Testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -63,7 +69,6 @@
 		</dependency>
 	</dependencies>
 
-	<!-- Spring Cloud BOM -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

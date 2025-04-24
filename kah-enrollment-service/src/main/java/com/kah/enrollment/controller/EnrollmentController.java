@@ -1,8 +1,7 @@
 package com.kah.enrollment.controller;
 
-import com.kah.enrollment.dto.EnrollmentDTO;
-import com.kah.enrollment.entity.Enrollment;
-import com.kah.enrollment.service.EnrollmentService;
+import com.kah.enrollment.dto.EnrollmentDto;
+import com.kah.enrollment.service.IEnrollmentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,24 +10,19 @@ import java.util.List;
 @RequestMapping("/api/enrollments")
 public class EnrollmentController {
 
-    private final EnrollmentService enrollmentService;
+    private final IEnrollmentService service;
 
-    public EnrollmentController(EnrollmentService enrollmentService) {
-        this.enrollmentService = enrollmentService;
+    public EnrollmentController(IEnrollmentService service) {
+        this.service = service;
     }
 
     @GetMapping
-    public List<Enrollment> getAll() {
-        return enrollmentService.getAll();
+    public List<EnrollmentDto> listar() {
+        return service.listar();
     }
 
     @PostMapping
-    public Enrollment enroll(@RequestBody EnrollmentDTO dto) {
-        return enrollmentService.enroll(dto);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        enrollmentService.deleteEnrollment(id);
+    public EnrollmentDto matricular(@RequestBody EnrollmentDto dto) {
+        return service.matricular(dto);
     }
 }

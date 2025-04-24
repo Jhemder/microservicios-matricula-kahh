@@ -1,7 +1,7 @@
 package com.kah.course.controller;
 
-import com.kah.course.entity.Course;
-import com.kah.course.service.CourseService;
+import com.kah.course.dto.CourseDto;
+import com.kah.course.service.ICourseService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,29 +10,29 @@ import java.util.List;
 @RequestMapping("/api/courses")
 public class CourseController {
 
-    private final CourseService courseService;
+    private final ICourseService service;
 
-    public CourseController(CourseService courseService) {
-        this.courseService = courseService;
+    public CourseController(ICourseService service) {
+        this.service = service;
     }
 
     @GetMapping
-    public List<Course> getAllCourses() {
-        return courseService.getAllCourses();
+    public List<CourseDto> listar() {
+        return service.listar();
     }
 
     @PostMapping
-    public Course createCourse(@RequestBody Course course) {
-        return courseService.saveCourse(course);
+    public CourseDto guardar(@RequestBody CourseDto dto) {
+        return service.guardar(dto);
     }
 
     @GetMapping("/{id}")
-    public Course getCourseById(@PathVariable Long id) {
-        return courseService.getCourseById(id);
+    public CourseDto buscar(@PathVariable Long id) {
+        return service.buscarPorId(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCourse(@PathVariable Long id) {
-        courseService.deleteCourse(id);
+    public void eliminar(@PathVariable Long id) {
+        service.eliminar(id);
     }
 }

@@ -1,26 +1,12 @@
-package com.kah.course.entity;
+package com.kah.course.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "courses")
-public class Course {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CourseDto {
     private Long id;
-
     private String codigo;
     private String nombre;
     private String ciclo;
     private String horario;
     private int capacidad;
-
-    public Course(Object o, String inf101, String algoritmos, String iii, String s, int i) {
-    }
-
-    public Course() {
-
-    }
 
     // Getters y setters
     public Long getId() { return id; }
