@@ -1,32 +1,30 @@
 server:
-  port: 8080
+  port: 8083
 
 spring:
   application:
-    name: kah-gateway-server
+    name: kah-enrollment-service
 
-  cloud:
-    gateway:
-      routes:
-        - id: student-service
-          uri: lb://kah-student-service
-          predicates:
-            - Path=/api/students/**
-        - id: course-service
-          uri: lb://kah-course-service
-          predicates:
-            - Path=/api/courses/**
-        - id: enrollment-service
-          uri: lb://kah-enrollment-service
-          predicates:
-            - Path=/api/enrollments/**
+  datasource:
+    url: jdbc:mysql://localhost:3306/kah_enrollment_db
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
-    discovery:
-      locator:
-        enabled: true
-        lower-case-service-id: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  jackson:
+    time-zone: America/Lima
 
 eureka:
   client:
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
