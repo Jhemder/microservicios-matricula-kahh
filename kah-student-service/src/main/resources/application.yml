@@ -3,6 +3,6 @@ server:
 
 spring:
   application:
-    name: Kah-students
+    name: Kah-students-service
   config:
     import: configserver:http://localhost:7070
